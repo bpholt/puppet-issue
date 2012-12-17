@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# This file is managed by Puppet. Changes will be overwritten during the next maintenance cycle.
+
+IPADDR=`ifconfig eth0 | grep "inet addr" | awk '{ print $2 }' | cut -d: -f2`
+
+cat /etc/system-release > /etc/issue
+cat << _EOF_ >> /etc/issue
+
+Running on IP address $IPADDR.
+
+_EOF_
