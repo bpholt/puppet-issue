@@ -2,11 +2,11 @@
 
 # This file is managed by Puppet. Changes will be overwritten during the next maintenance cycle.
 
-IPADDR=`ifconfig eth0 | grep "inet addr" | awk '{ print $2 }' | cut -d: -f2`
+IPADDR=`ifconfig eth0 | grep addr`
 
 cat /etc/system-release > /etc/issue
 cat << _EOF_ >> /etc/issue
 
-Running on IP address $IPADDR.
+$IPADDR.
 
 _EOF_
